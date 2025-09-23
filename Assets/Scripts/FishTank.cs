@@ -9,25 +9,32 @@ public class FishTank : MonoBehaviour
     public Slider hungerSlider;
     public TextMeshProUGUI populationText;
     public Renderer tankWaterMaterial;
+    public Renderer tankGlassMaterial;
 
     [Header("Tank Stats")]
     public int Hunger = 0;
     public int Ammonia = 0;
+    public int Dirtiness = 0;
     public int Population = 0;
 
     [Header("Tank Limits")]
     public int MaxHunger = 100;
     public int MaxAmmonia = 100;
+    public int MaxDirtiness = 100;
     public int MaxPopulation = 100;
 
     
     Color cleanColor = Color.cyan;
     Color toxicColor = Color.yellow;
+    Color cleanGlassColor = Color.white;
+    Color dirtyGlassColor = Color.green;
 
     private void Start()
     {
         cleanColor.a = 0.25f; // Semi-transparent
         toxicColor.a = 0.3f; // More opaque
+        cleanGlassColor.a = 0.2f;
+        dirtyGlassColor.a = 1f;
     }
     private void Update()
     {
@@ -39,5 +46,7 @@ public class FishTank : MonoBehaviour
         populationText.color = Color.Lerp(Color.white, Color.red, popRatio);
         float ammoniaRatio = Mathf.Clamp01((float)Ammonia / (MaxAmmonia + 25));
         tankWaterMaterial.material.color = Color.Lerp(cleanColor, toxicColor, ammoniaRatio);
+        float dirtinessRatio = Mathf.Clamp01((float)Dirtiness / MaxDirtiness);
+        tankGlassMaterial.material.color = Color.Lerp(cleanGlassColor, dirtyGlassColor, dirtinessRatio);
     }
 }
