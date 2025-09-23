@@ -9,7 +9,7 @@ public class musicPlayerScript : MonoBehaviour
     private AudioSource stressLayer;
 
     private float speed = 1;
-    private float speedStressRelation = 0.2f;
+    [SerializeField] private float speedStressRelation = 0.1f;
     public float stressLevel = 0;
     public float musicVolume; //volume of the music
     void Start()
