@@ -16,7 +16,7 @@ public class FishMovement : MonoBehaviour
     {
         if (rb.linearVelocity.x > 0) //rotate fish
         {
-            transform.rotation = Quaternion.Euler(0, 0, 0);
+            transform.rotation = Quaternion.Euler(180, 0, 0);
         }
     }
     void OnCollisionEnter(Collision collision)
