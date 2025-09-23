@@ -220,7 +220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8abac0bf3e1912d458622e74a01b104b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  speed: 40
+  speed: 15
 --- !u!61 &49687160
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -281,8 +281,8 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_AngularDamping: 0
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -292,8 +292,8 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  m_CollisionDetection: 1
+  m_Constraints: 4
 --- !u!1 &304288967
 GameObject:
   m_ObjectHideFlags: 0
@@ -726,7 +726,7 @@ EdgeCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: ac2a05b2fe3f648419384cdd1eb8eb1c, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -845,6 +845,10 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5681185396374124414, guid: 4f90c6f70eff6254d9ac34cb834f9d5a, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6469027656959807265, guid: 4f90c6f70eff6254d9ac34cb834f9d5a, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -855,6 +859,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6469027656959807265, guid: 4f90c6f70eff6254d9ac34cb834f9d5a, type: 3}
       propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6499305653351165131, guid: 4f90c6f70eff6254d9ac34cb834f9d5a, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

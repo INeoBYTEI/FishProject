@@ -8,7 +8,7 @@ public class FishMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        rb.AddForce(speed, 0);
+        rb.linearVelocity = new Vector2(speed, speed);
     }
 
     // Update is called once per frame
@@ -18,6 +18,6 @@ public class FishMovement : MonoBehaviour
     }
     void OnCollisionEnter(Collision collision)
     {
-        
+        rb.linearVelocity *= Random.Range(0.5f, 1.5f);
     }
 }
