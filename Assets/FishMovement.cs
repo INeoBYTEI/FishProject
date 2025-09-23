@@ -14,10 +14,14 @@ public class FishMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (rb.linearVelocity.x > 0)
+        {
+        
+        }
     }
     void OnCollisionEnter(Collision collision)
     {
         rb.linearVelocity *= Random.Range(0.5f, 1.5f);
+        rb.linearVelocity = rb.linearVelocity.normalized;
     }
 }
