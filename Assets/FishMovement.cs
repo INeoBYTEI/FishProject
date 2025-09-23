@@ -14,9 +14,9 @@ public class FishMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (rb.linearVelocity.x > 0)
+        if (rb.linearVelocity.x > 0) //rotate fish
         {
-        
+            transform.rotation = Quaternion.Euler(0, 0, 0);
         }
     }
     void OnCollisionEnter(Collision collision)
