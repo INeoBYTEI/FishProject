@@ -38,7 +38,7 @@ public class FishMovement : MonoBehaviour
     }
     void OnCollisionEnter(Collision collision)
     {
-        rb.linearVelocity *= Random.Range(0.5f, 1.5f);
-        rb.linearVelocity = rb.linearVelocity.normalized * speed;
+        
+        rb.linearVelocity = rb.linearVelocity.normalized * speed * Random.Range(0.5f, 1.5f);
     }
 }

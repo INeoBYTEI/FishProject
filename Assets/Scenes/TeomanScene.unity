@@ -181,7 +181,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -1018664272722485354, guid: 5bb2831d44e742d40951e3fa98266057, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bb2831d44e742d40951e3fa98266057, type: 3}
       propertyPath: m_Name
@@ -189,7 +189,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bb2831d44e742d40951e3fa98266057, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5bb2831d44e742d40951e3fa98266057, type: 3}
+      propertyPath: m_TagString
+      value: Fish
       objectReference: {fileID: 0}
     - target: {fileID: 6317578925029434746, guid: 5bb2831d44e742d40951e3fa98266057, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -256,7 +260,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8abac0bf3e1912d458622e74a01b104b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  model: {fileID: 0}
+  model: {fileID: 357620829}
   speed: 3
 --- !u!61 &49687160
 BoxCollider2D:
@@ -271,10 +275,10 @@ BoxCollider2D:
   m_Material: {fileID: 6200000, guid: ac2a05b2fe3f648419384cdd1eb8eb1c, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -323,7 +327,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ac2a05b2fe3f648419384cdd1eb8eb1c, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 128
@@ -563,6 +567,11 @@ MonoBehaviour:
   mainMix: {fileID: 0}
   SFXMixGroup: {fileID: 0}
   MusicMixGroup: {fileID: 0}
+--- !u!1 &357620829 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -1018664272722485354, guid: 5bb2831d44e742d40951e3fa98266057, type: 3}
+  m_PrefabInstance: {fileID: 49687155}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -839,7 +848,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1526173144}
   - component: {fileID: 1526173143}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TankCollision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
