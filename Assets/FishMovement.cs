@@ -8,6 +8,8 @@ public class FishMovement : MonoBehaviour
     bool right;
     float prevVelo = 1000000;
 
+    bool Priority = true;
+
     Vector3 newScale;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -24,21 +26,50 @@ public class FishMovement : MonoBehaviour
         if (rb.linearVelocity.x > 0) //rotate fish
         {
             this.transform.localScale = new Vector3(newScale.x, newScale.y, newScale.z);
-            Debug.Log(prevVelo);
+            
         }
         if (rb.linearVelocity.x < 0) //rotate fish
         {
             this.transform.localScale = new Vector3(-newScale.x, newScale.y, newScale.z);
             //transform.rotation = Quaternion.Euler(180, 0, 0);
-            Debug.Log("works 2");
-            Debug.Log(prevVelo);
-
         }
         prevVelo = rb.linearVelocity.x;
     }
-    void OnCollisionEnter(Collision collision)
+    
+    public void OnCollisionEnter2D(Collision2D collision)
     {
-        
         rb.linearVelocity = rb.linearVelocity.normalized * speed * Random.Range(0.5f, 1.5f);
+        if (collision.gameObject.CompareTag("Fish"))
+        {
+            Debug.Log("Collide");
+            if (Priority)
+            {
+                Debug.Log("Collided with " + collision.gameObject);
+                if (collision.gameObject.TryGetComponent(out FishMovement comp))
+                {
+                    Debug.Log("Disabled other");
+                    comp.Priority = false;
+                }
+
+                var rand = Random.Range(0, 3);
+                switch (rand)
+                {
+                    case 0:
+                        comp.Priority = true;
+                        comp.Priority = true;
+                        Instantiate(collision.gameObject);
+                        break;
+                    case 1:
+                        comp.Priority = true;
+                        Instantiate(collision.gameObject);
+                        break;
+                    case 2:
+                        comp.Priority = true;
+                        Instantiate(collision.gameObject);
+                        break;
+                }
+                return;
+            }
+        }
     }
 }
