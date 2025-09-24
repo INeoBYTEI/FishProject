@@ -1,30 +1,17 @@
 using UnityEngine;
 
-public enum CanType
+public class Snails : MonoBehaviour
 {
-    FOOD,
-    RAGE,
-    CLEAN
-}
-public class CanHandler : MonoBehaviour
-{
-    public GameObject sprinklesPrefab;
-    public Transform sprinkleSpawnPoint;
     public GameObject playerHand;
     public bool isEquipped = false;
-    private Animator animator;
     private Rigidbody rb;
     private BoxCollider boxCollider;
-    public CanType CanType;
-
     private void Start()
     {
-        animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         boxCollider = GetComponent<BoxCollider>();
     }
-
-    public void EquipCan()
+    public void Equip()
     {
         isEquipped = true;
         boxCollider.enabled = false;
@@ -34,16 +21,11 @@ public class CanHandler : MonoBehaviour
         rb.isKinematic = true;
     }
 
-    public void UnequipCan()
+    public void Unequip()
     {
         isEquipped = false;
         boxCollider.enabled = true;
         transform.SetParent(null, true);
         rb.isKinematic = false;
-    }
-    public void Sprinkle()
-    {
-        Instantiate(sprinklesPrefab, sprinkleSpawnPoint.position, Quaternion.identity);
-        animator.SetTrigger("Sprinkle");
     }
 }

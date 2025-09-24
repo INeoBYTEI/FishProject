@@ -62,7 +62,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 69f186a4233b5fa4990ea5f1968ec372, type: 3}
       propertyPath: m_Name
-      value: Fish Food 1
+      value: Fish Food
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 69f186a4233b5fa4990ea5f1968ec372, type: 3}
+      propertyPath: m_TagString
+      value: Can
       objectReference: {fileID: 0}
     - target: {fileID: 7202271454713460447, guid: 69f186a4233b5fa4990ea5f1968ec372, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -156,6 +160,7 @@ MonoBehaviour:
   sprinkleSpawnPoint: {fileID: 0}
   playerHand: {fileID: 0}
   isEquipped: 0
+  CanType: 0
 --- !u!95 &3167648851757465192
 Animator:
   serializedVersion: 7

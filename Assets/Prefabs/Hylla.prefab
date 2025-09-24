@@ -73,7 +73,9 @@ PrefabInstance:
       value: Hylla
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 281855664364225751, guid: 057342dd7b53a214183fa5b50a04036e, type: 3}
+    - {fileID: -2045257923548263128, guid: 057342dd7b53a214183fa5b50a04036e, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 057342dd7b53a214183fa5b50a04036e, type: 3}

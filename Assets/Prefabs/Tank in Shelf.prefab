@@ -1048,9 +1048,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3573474597738911364}
   - component: {fileID: 1782317983793386273}
-  - component: {fileID: 6193071410482176587}
+  - component: {fileID: 8152871628701817161}
   m_Layer: 0
-  m_Name: Fish Tank
+  m_Name: Tank in Shelf
   m_TagString: FishTank
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1095,7 +1095,7 @@ MonoBehaviour:
   hungerSlider: {fileID: 3845914568153405074}
   populationText: {fileID: 2968871857294487138}
   tankWaterMaterial: {fileID: 7832379740372067199}
-  tankGlassMaterial: {fileID: 7832379740372067199}
+  tankGlassMaterial: {fileID: 4638644164438590888}
   hunger: 0
   ammonia: 0
   dirtiness: 0
@@ -1108,33 +1108,27 @@ MonoBehaviour:
   maxPopulation: 100
   hasSnails: 0
   isRaging: 0
---- !u!54 &6193071410482176587
-Rigidbody:
+--- !u!65 &8152871628701817161
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4642823378798744534}
-  serializedVersion: 5
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 13, y: 6, z: 6}
+  m_Center: {x: 0, y: 3, z: 0}
 --- !u!1 &4910776265302261310
 GameObject:
   m_ObjectHideFlags: 0
@@ -1462,7 +1456,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 09fa463a9c1c1c542821debfefb3e563, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.38431373}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1702,7 +1696,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 09fa463a9c1c1c542821debfefb3e563, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.38431373}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2917,37 +2911,13 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: d94a6c64d4e2d4d4397fdce139c42264, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2862467342240367354}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d94a6c64d4e2d4d4397fdce139c42264, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6202417994258884133}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d94a6c64d4e2d4d4397fdce139c42264, type: 3}
---- !u!1 &8331355912660938294 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d94a6c64d4e2d4d4397fdce139c42264, type: 3}
+--- !u!23 &4638644164438590888 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -4683669308469848369, guid: d94a6c64d4e2d4d4397fdce139c42264, type: 3}
   m_PrefabInstance: {fileID: 9178201755266863975}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &6202417994258884133
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8331355912660938294}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 5.5, z: 13.5}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &8706932126394692748 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d94a6c64d4e2d4d4397fdce139c42264, type: 3}
