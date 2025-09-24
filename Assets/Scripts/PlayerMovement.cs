@@ -9,6 +9,11 @@ public enum itemType
 }
 public class PlayerMovement : MonoBehaviour
 {
+    //REBECKA AUDIO STUFF
+    [SerializeField] AudioClip pickUpSound;
+    [SerializeField] AudioClip dropSound;
+    [SerializeField] AudioClip shakeCanSound;
+    //REBECKA AUDIO STUFF END
     Camera mainCam;
     private InputAction moveInputs;
     private InputAction interactInput;
@@ -92,6 +97,9 @@ public class PlayerMovement : MonoBehaviour
             if (heldItemType == itemType.NONE)
             {
                 can.GetComponent<CanHandler>().EquipCan();
+                //rebecka audio stuff
+                SoundManager.instance.CreateSound(pickUpSound, 0.6f, SoundManager.instance.SFXMixGroup, transform.position);
+                //end
                 heldItemType = (itemType)can.GetComponent<CanHandler>().CanType;
                 heldItem = can;
             }
@@ -109,6 +117,9 @@ public class PlayerMovement : MonoBehaviour
             if (heldItemType == itemType.NONE)
             {
                 snails.GetComponent<Snails>().Equip();
+                //rebecka audio stuff
+                SoundManager.instance.CreateSound(pickUpSound, 0.6f, SoundManager.instance.SFXMixGroup, transform.position);
+                //end
                 heldItemType = itemType.SNAILS;
                 heldItem = snails;
             }
@@ -167,6 +178,9 @@ public class PlayerMovement : MonoBehaviour
                 CanHandler canHandler = can.GetComponent<CanHandler>();
                 canHandler.playerHand = hand;
                 canHandler.EquipCan();
+                //rebecka audio stuff
+                SoundManager.instance.CreateSound(pickUpSound, 0.6f, SoundManager.instance.SFXMixGroup, transform.position);
+                //end
                 heldItemType = box.boxType;
                 heldItem = can;
             }
@@ -183,6 +197,7 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             DropItem();
+            
         }
     }
     void DropItem()
@@ -201,6 +216,9 @@ public class PlayerMovement : MonoBehaviour
                 heldItem.GetComponent<CanHandler>().UnequipCan();
                 heldItemType = itemType.NONE;
                 heldItem = null;
+                //rebecka audio stuff
+                SoundManager.instance.CreateSound(dropSound, 0.6f, SoundManager.instance.SFXMixGroup, transform.position);
+                //end
             }
         }
     }

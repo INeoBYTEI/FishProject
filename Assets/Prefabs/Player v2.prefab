@@ -484,6 +484,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4a2b8b32e9a81c4d970582915e55f60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
+  pickUpSound: {fileID: 8300000, guid: 894beb3b875c38e41937f10672b9440e, type: 3}
+  dropSound: {fileID: 8300000, guid: f985fdf688681e248803c87e1fca3078, type: 3}
+  shakeCanSound: {fileID: 8300000, guid: c8564bd0d525cc64e8a89c878dbae6c5, type: 3}
   GrabIndicator: {fileID: 6772486880256064763}
   UseIndicator: {fileID: 3190787557470865980}
   hand: {fileID: 3332908042276929985}
