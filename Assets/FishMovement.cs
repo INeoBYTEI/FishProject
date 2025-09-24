@@ -69,26 +69,42 @@ public class FishMovement : MonoBehaviour
             Debug.Log("Collide");
             if (Priority)
             {
-                Debug.Log("Collided with " + collision.gameObject);
+                int range = 0;
                 if (collision.gameObject.TryGetComponent(out FishMovement comp))
                 {
                     Debug.Log("Disabled other");
                     comp.Priority = false;
                 }
-
-                rand = Random.Range(0, 3);
-                switch (rand)
+                if (tank.hunger >= 50)
                 {
-                    case 0:
-                        
-                        break;
-                    case 1:
-                        tank.AddFish(collision.gameObject.transform);
-                        break;
-                    case 2:
+                    range = 10;
+                }
+                else if (tank.hunger >= 20)
+                {
+                    range = 20;
+                }
+                else
+                {
+                    range = 3;
+                }
+                Debug.Log("Collided with " + collision.gameObject);
+                if (range == 3)
+                {
+                    rand = Random.Range(1, range);
+                }
+                else
+                {
+                    rand = Random.Range(0, range);
+                }
 
-                        tank.RemoveFish(collision.gameObject);
-                        break;
+                
+                if (rand == 0)
+                {
+                    tank.RemoveFish(collision.gameObject);
+                }
+                else if (rand < range / 2)
+                {
+                    tank.AddFish(collision.gameObject.transform);
                 }
                 currentTimer = 0;
                 Priority = false;
