@@ -34,6 +34,7 @@ public class FishTank : MonoBehaviour
     public bool isRaging = false;
 
     private float timer = 0f;
+    private float explosionTimer = 10f;
 
 
     Color cleanColor = Color.cyan;
@@ -51,7 +52,7 @@ public class FishTank : MonoBehaviour
     private void Update()
     {
         // Update water color based on Ammonia level
-        ammoniaSlider.value = ammonia / maxAmmonia; 
+        ammoniaSlider.value = ammonia / maxAmmonia;
         hungerSlider.value = hunger / maxHunger;
         populationText.text = (float)population + "/" + maxPopulation;
         float popRatio = Mathf.Clamp01((float)population / maxPopulation);
@@ -170,5 +171,12 @@ public class FishTank : MonoBehaviour
                 RageFish();
             }
         }
+        points += population;
+    }
+    
+    public void ExplodeTank()
+    {
+        // Implement tank explosion logic here
+        Debug.Log("Tank has exploded due to extreme conditions!");
     }
 }
