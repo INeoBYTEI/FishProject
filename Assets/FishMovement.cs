@@ -5,12 +5,17 @@ public class FishMovement : MonoBehaviour
     Rigidbody2D rb;
     public GameObject model;
     public int speed;
+    bool right;
+    float prevVelo = 1000000;
+
+    Vector3 newScale;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         rb.linearVelocity = new Vector2(speed, speed);
+        newScale = this.transform.localScale;
     }
 
     // Update is called once per frame
@@ -18,16 +23,18 @@ public class FishMovement : MonoBehaviour
     {
         if (rb.linearVelocity.x > 0) //rotate fish
         {
-            model.transform.rotation = Quaternion.Euler(-90, 22, 74);
-            //transform.rotation = Quaternion.Euler(180, 0, 0);
-            Debug.Log("works 1");
+            this.transform.localScale = new Vector3(newScale.x, newScale.y, newScale.z);
+            Debug.Log(prevVelo);
         }
         if (rb.linearVelocity.x < 0) //rotate fish
         {
-            model.transform.rotation = Quaternion.Euler(-90, 202, 74);
+            this.transform.localScale = new Vector3(-newScale.x, newScale.y, newScale.z);
             //transform.rotation = Quaternion.Euler(180, 0, 0);
             Debug.Log("works 2");
+            Debug.Log(prevVelo);
+
         }
+        prevVelo = rb.linearVelocity.x;
     }
     void OnCollisionEnter(Collision collision)
     {
