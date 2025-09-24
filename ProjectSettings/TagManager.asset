@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 3
   tags:
   - Fish
+  - FishTank
+  - Can
+  - Snails
   layers:
   - Default
   - TransparentFX

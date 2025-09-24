@@ -5,6 +5,7 @@ public class FishMovement : MonoBehaviour
 {
     Rigidbody2D rb;
     public GameObject model;
+    FishTank tank;
     public int speed;
     bool right;
     float prevVelo = 1000000;
@@ -22,6 +23,8 @@ public class FishMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         rb.linearVelocity = new Vector2(speed, speed);
         newScale = this.transform.localScale;
+
+        tank = gameObject.GetComponentInParent<FishTank>();
     }
 
     // Update is called once per frame
@@ -57,7 +60,7 @@ public class FishMovement : MonoBehaviour
         if (rand == 1)
         {
             Debug.Log("switching up");
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x * Random.Range(0.7f, 1.3f), rb.linearVelocity.y * Random.Range(0.7f, 1.3f));
+            rb.linearVelocity = new Vector2(Random.Range(-5, 5), Random.Range(-5, 5));
         }
         
         rb.linearVelocity = rb.linearVelocity.normalized * speed * Random.Range(0.7f, 1.4f);
@@ -77,14 +80,14 @@ public class FishMovement : MonoBehaviour
                 switch (rand)
                 {
                     case 0:
-                        Instantiate(collision.gameObject);
+                        
                         break;
                     case 1:
-                        Instantiate(collision.gameObject);
+                        tank.AddFish(collision.gameObject.transform);
                         break;
                     case 2:
 
-                        Destroy(collision.gameObject);
+                        tank.RemoveFish(collision.gameObject);
                         break;
                 }
                 currentTimer = 0;
