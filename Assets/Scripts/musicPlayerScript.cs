@@ -1,10 +1,14 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class musicPlayerScript : MonoBehaviour
 {
     [SerializeField] AudioClip mainLayerClip;
     [SerializeField] AudioClip stressLayerClip;
+    [SerializeField] AudioMixer mainMix;
+    AudioMixerGroup music;
+    AudioMixerGroup sound;
     private AudioSource mainLayer;
     private AudioSource stressLayer;
 
@@ -14,6 +18,8 @@ public class musicPlayerScript : MonoBehaviour
     public float musicVolume; //volume of the music
     void Start()
     {
+        music = mainMix.FindMatchingGroups("Music")[0];
+        sound = mainMix.FindMatchingGroups("SFX")[0];
         //creating the audio source components and playing the music
         mainLayer =  gameObject.AddComponent<AudioSource>();
         stressLayer = gameObject.AddComponent<AudioSource>();
@@ -23,12 +29,14 @@ public class musicPlayerScript : MonoBehaviour
         mainLayer.volume = musicVolume;
         stressLayer.volume = stressLevel * musicVolume;
 
+        mainLayer.outputAudioMixerGroup = music;
+        stressLayer.outputAudioMixerGroup = sound;
+
         mainLayer.Play();
         stressLayer.Play();
     }
     void Update()
     {
-
         speed = 1 + (stressLevel * speedStressRelation);
         mainLayer.pitch = speed;
         stressLayer.pitch = speed;
