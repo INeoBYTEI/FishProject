@@ -46,8 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3614ba42792363a499f1cb19a268bb63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  mainLayerClip: {fileID: 0}
-  stressLayerClip: {fileID: 0}
+  mainLayerClip: {fileID: 8300000, guid: 742abad2ca7fb9c4da90c25c158bd52a, type: 3}
+  stressLayerClip: {fileID: 8300000, guid: 91d7af50e4bbdb345bab47024a0316af, type: 3}
   mainMix: {fileID: 24100000, guid: bce097b98ddcae440a26422e84998c73, type: 2}
   speedStressRelation: 0.1
   stressLevel: 0
