@@ -1,3 +1,4 @@
+using NUnit.Framework;
 using UnityEngine;
 
 public class FishMovement : MonoBehaviour
@@ -8,8 +9,11 @@ public class FishMovement : MonoBehaviour
     bool right;
     float prevVelo = 1000000;
 
-    bool Priority = true;
+    float maxTime = 300;
+    float currentTimer = 0;
 
+    bool Priority = false;
+    
     Vector3 newScale;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -23,22 +27,40 @@ public class FishMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (rb.linearVelocity.x > 0) //rotate fish
+        if (rb.linearVelocity.x > 0 && this.transform.localScale == new Vector3(-newScale.x, newScale.y, newScale.z)) //rotate fish
         {
             this.transform.localScale = new Vector3(newScale.x, newScale.y, newScale.z);
-            
+
         }
-        if (rb.linearVelocity.x < 0) //rotate fish
+        if (rb.linearVelocity.x < 0 && this.transform.localScale == new Vector3(newScale.x, newScale.y, newScale.z)) //rotate fish
         {
             this.transform.localScale = new Vector3(-newScale.x, newScale.y, newScale.z);
             //transform.rotation = Quaternion.Euler(180, 0, 0);
         }
         prevVelo = rb.linearVelocity.x;
+
+        
+
+        if (currentTimer <= maxTime)
+        {
+            currentTimer += 10 * Time.deltaTime;
+        }
+        else if (currentTimer >= maxTime)
+        {
+            Priority = true;
+        }
     }
     
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        rb.linearVelocity = rb.linearVelocity.normalized * speed * Random.Range(0.5f, 1.5f);
+        var rand = Random.Range(0, 3);
+        if (rand == 1)
+        {
+            Debug.Log("switching up");
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x * Random.Range(0.7f, 1.3f), rb.linearVelocity.y * Random.Range(0.7f, 1.3f));
+        }
+        
+        rb.linearVelocity = rb.linearVelocity.normalized * speed * Random.Range(0.7f, 1.4f);
         if (collision.gameObject.CompareTag("Fish"))
         {
             Debug.Log("Collide");
@@ -51,23 +73,23 @@ public class FishMovement : MonoBehaviour
                     comp.Priority = false;
                 }
 
-                var rand = Random.Range(0, 3);
+                rand = Random.Range(0, 3);
                 switch (rand)
                 {
                     case 0:
-                        comp.Priority = true;
-                        comp.Priority = true;
                         Instantiate(collision.gameObject);
                         break;
                     case 1:
-                        comp.Priority = true;
                         Instantiate(collision.gameObject);
                         break;
                     case 2:
-                        comp.Priority = true;
-                        Instantiate(collision.gameObject);
+
+                        Destroy(collision.gameObject);
                         break;
                 }
+                currentTimer = 0;
+                Priority = false;
+
                 return;
             }
         }
