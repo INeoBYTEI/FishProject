@@ -46,8 +46,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3614ba42792363a499f1cb19a268bb63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  mainLayer: {fileID: 7954259328808167033}
-  stressLayer: {fileID: 7484952302962649889}
+  mainLayerClip: {fileID: 0}
+  stressLayerClip: {fileID: 0}
+  mainMix: {fileID: 24100000, guid: bce097b98ddcae440a26422e84998c73, type: 2}
+  speedStressRelation: 0.1
+  stressLevel: 0
+  musicVolume: 0
 --- !u!1 &8434989103113528319
 GameObject:
   m_ObjectHideFlags: 0
