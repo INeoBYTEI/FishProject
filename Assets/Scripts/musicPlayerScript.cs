@@ -37,7 +37,6 @@ public class musicPlayerScript : MonoBehaviour
     }
     void Update()
     {
-
         speed = 1 + (stressLevel * speedStressRelation);
         mainLayer.pitch = speed;
         stressLayer.pitch = speed;
