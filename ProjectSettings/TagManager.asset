@@ -8,6 +8,7 @@ TagManager:
   - FishTank
   - Can
   - Snails
+  - Box
   layers:
   - Default
   - TransparentFX

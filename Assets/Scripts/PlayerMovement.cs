@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     private InputAction interactInput;
     public GameObject GrabIndicator;
     public GameObject UseIndicator;
+    public GameObject hand;
     private Rigidbody rb;
     public float speed = 5f;
     private GameObject heldItem = null;
@@ -87,7 +88,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (hit.collider.CompareTag("Can"))
         {
-            GameObject can = hit.collider.gameObject;       
+            GameObject can = hit.collider.gameObject;
             if (heldItemType == itemType.NONE)
             {
                 can.GetComponent<CanHandler>().EquipCan();
@@ -155,6 +156,28 @@ public class PlayerMovement : MonoBehaviour
                         DropItem();
                     }
                     break;
+            }
+        }
+        else if (hit.collider.CompareTag("Box"))
+        {
+            CanBox box = hit.collider.GetComponent<CanBox>();
+            if (heldItemType == itemType.NONE)
+            {
+                GameObject can = Instantiate(box.canPrefab, hand.transform.position, hand.transform.rotation);
+                CanHandler canHandler = can.GetComponent<CanHandler>();
+                canHandler.playerHand = hand;
+                canHandler.EquipCan();
+                heldItemType = box.boxType;
+                heldItem = can;
+            }
+            else
+            {
+                DropItem();
+                GameObject can = Instantiate(box.canPrefab, hand.transform.position, hand.transform.rotation);
+                can.GetComponent<CanHandler>().playerHand = hand;
+                can.GetComponent<CanHandler>().EquipCan();
+                heldItemType = box.boxType;
+                heldItem = can;
             }
         }
         else
