@@ -3,7 +3,9 @@ using UnityEngine;
 public class FishMovement : MonoBehaviour
 {
     Rigidbody2D rb;
+    public GameObject model;
     public int speed;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -16,12 +18,20 @@ public class FishMovement : MonoBehaviour
     {
         if (rb.linearVelocity.x > 0) //rotate fish
         {
-            transform.rotation = Quaternion.Euler(180, 0, 0);
+            model.transform.rotation = Quaternion.Euler(-90, 22, 74);
+            //transform.rotation = Quaternion.Euler(180, 0, 0);
+            Debug.Log("works 1");
+        }
+        if (rb.linearVelocity.x < 0) //rotate fish
+        {
+            model.transform.rotation = Quaternion.Euler(-90, 202, 74);
+            //transform.rotation = Quaternion.Euler(180, 0, 0);
+            Debug.Log("works 2");
         }
     }
     void OnCollisionEnter(Collision collision)
     {
         rb.linearVelocity *= Random.Range(0.5f, 1.5f);
-        rb.linearVelocity = rb.linearVelocity.normalized;
+        rb.linearVelocity = rb.linearVelocity.normalized * speed;
     }
 }

@@ -220,7 +220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8abac0bf3e1912d458622e74a01b104b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  speed: 15
+  speed: 3
 --- !u!61 &49687160
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -231,7 +231,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: ac2a05b2fe3f648419384cdd1eb8eb1c, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -283,7 +283,7 @@ Rigidbody2D:
   m_LinearDamping: 0
   m_AngularDamping: 0
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: ac2a05b2fe3f648419384cdd1eb8eb1c, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
