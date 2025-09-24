@@ -32,7 +32,7 @@ public class menuLogic : MonoBehaviour
     }
     public void goToGameScene()
     {
-        SceneManager.LoadScene("game"); //byt ut till faktiska namnet på spelscenen
+        SceneManager.LoadScene("Game"); //byt ut till faktiska namnet på spelscenen
     }
     public void MusicVolumeSliderChanged(Single volumeVal)
     {
