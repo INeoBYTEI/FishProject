@@ -20,10 +20,14 @@ public class InGamePause : MonoBehaviour
         if (pauseMenu.activeInHierarchy)
         {
             pauseMenu.SetActive(false);
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
         }
         else
         {
             pauseMenu.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
     }
     public void Update()
@@ -47,6 +51,6 @@ public class InGamePause : MonoBehaviour
     }
     public void backClicked()
     {
-        pauseMenu.SetActive(false);
+        togglePauseMenu();
     }
 }
