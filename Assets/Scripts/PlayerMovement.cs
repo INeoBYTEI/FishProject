@@ -138,18 +138,22 @@ public class PlayerMovement : MonoBehaviour
             {
                 case itemType.FOOD:
                     tank.FeedFish(25);
+                    SoundManager.instance.CreateSound(shakeCanSound, 0.75f, SoundManager.instance.SFXMixGroup, transform.position);
                     ConsumeItem();
                     break;
                 case itemType.CLEAN:
                     tank.DetoxifyTank(25);
+                    SoundManager.instance.CreateSound(shakeCanSound, 0.75f, SoundManager.instance.SFXMixGroup, transform.position);
                     ConsumeItem();
                     break;
                 case itemType.RAGE:
                     tank.RageFish();
+                    SoundManager.instance.CreateSound(shakeCanSound, 0.75f, SoundManager.instance.SFXMixGroup, transform.position);
                     ConsumeItem();
                     break;
                 case itemType.SNAILS:
                     tank.ToggleSnails();
+                    SoundManager.instance.CreateSound(dropSound, 0.6f, SoundManager.instance.SFXMixGroup, transform.position);
                     ConsumeItem();
                     break;
                 default:
