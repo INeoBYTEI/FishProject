@@ -23,6 +23,7 @@ public class FishTank : MonoBehaviour
     public int population = 0;
     public float points = 0;
     public float startTime = 0f;
+    public int startPopulation = 0;
     public List<GameObject> fishList = new List<GameObject>();
 
     [Header("Tank Limits")]
@@ -76,9 +77,23 @@ public class FishTank : MonoBehaviour
         }
         else if (startTime != -100f)
         {
-            AddFish(fishSpawnPoint);
-            AddFish(fishSpawnPoint);
+            for (int i = 0; i < startPopulation; i++)
+            {
+                AddFish(fishSpawnPoint);
+            }
             startTime = -100f;
+        }
+
+        foreach (GameObject fish in fishList)
+        {
+            if (Vector3.Distance(fish.transform.position, fishSpawnPoint.position) > 6.0f)
+            {
+                fish.transform.position = fishSpawnPoint.position;
+            }
+            else if (Mathf.Abs(fish.transform.position.y - fishSpawnPoint.position.y) > 1.8f)
+            {
+                fish.transform.position = fishSpawnPoint.position;
+            }
         }
     }
 
@@ -86,6 +101,13 @@ public class FishTank : MonoBehaviour
     {
         if (population < maxPopulation)
         {
+            float xPos = spawnPoint.position.x - fishSpawnPoint.position.x;
+            float yPos = spawnPoint.position.y - fishSpawnPoint.position.y;
+            if (xPos > 0) xPos = -2;
+            else if (xPos < 0) xPos = 2;
+            if (yPos > 0) yPos = -2;
+            else if (yPos < 0) yPos = 2;
+            spawnPoint.position = new Vector3(fishSpawnPoint.position.x + xPos, fishSpawnPoint.position.y + yPos, fishSpawnPoint.position.z);
             GameObject fish = Instantiate(fishPrefab, spawnPoint.position, Quaternion.identity);
             fish.transform.parent = this.gameObject.transform;
             fishList.Add(fish);
@@ -95,16 +117,13 @@ public class FishTank : MonoBehaviour
 
     public void RemoveFish(GameObject fish = null)
     {
-        if (population > 0 && fishList.Contains(fish))
+        if (fish == null)
         {
-            if (fish == null)
-            {
-                fish = fishList[fishList.Count - 1];
-            }
-            fishList.Remove(fish);
-            Destroy(fish);
-            population = fishList.Count;
+            fish = fishList[fishList.Count - 1];
         }
+        fishList.Remove(fish);
+        Destroy(fish);
+        population = fishList.Count;
     }
 
     public void FeedFish(int amount)
@@ -177,7 +196,11 @@ public class FishTank : MonoBehaviour
 
             if (isRaging)
             {
-                population = Mathf.Max(population - 5, 0);
+                RemoveFish();
+                RemoveFish();
+                RemoveFish();
+                RemoveFish();
+                RemoveFish();
                 hunger = Mathf.Max(hunger - 5, 0);
             }
             else if (hunger >= maxHunger)

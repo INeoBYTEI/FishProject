@@ -42,7 +42,7 @@ public class FishMovement : MonoBehaviour
         }
         prevVelo = rb.linearVelocity.x;
 
-        
+
 
         if (currentTimer <= maxTime)
         {
@@ -52,6 +52,8 @@ public class FishMovement : MonoBehaviour
         {
             Priority = true;
         }
+        
+
     }
     
     public void OnCollisionEnter2D(Collision2D collision)
@@ -60,7 +62,7 @@ public class FishMovement : MonoBehaviour
         if (rand == 1)
         {
             Debug.Log("switching up");
-            rb.linearVelocity = new Vector2(Random.Range(-5, 5), Random.Range(-5, 5));
+            rb.linearVelocity = new Vector2(Random.Range(-10, 10), Random.Range(-10, 10));
         }
         
         rb.linearVelocity = rb.linearVelocity.normalized * speed * Random.Range(0.7f, 1.4f);
