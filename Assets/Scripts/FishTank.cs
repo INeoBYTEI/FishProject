@@ -191,6 +191,6 @@ public class FishTank : MonoBehaviour
     public void ExplodeTank()
     {
         // Implement tank explosion logic here
-        Debug.Log("Tank has exploded due to extreme conditions!");
+        //Debug.Log("Tank has exploded due to extreme conditions!");
     }
 }

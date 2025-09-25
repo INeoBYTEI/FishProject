@@ -472,6 +472,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8564068764105920808, guid: 5b212d0064d058443bfcf1b43679bf87, type: 3}
+      propertyPath: fishPrefab
+      value: 
+      objectReference: {fileID: 5405323630094495405, guid: 3385b0a863ec80c4393d4d2891c28535, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
