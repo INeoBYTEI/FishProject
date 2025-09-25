@@ -87,6 +87,7 @@ public class FishTank : MonoBehaviour
         if (population < maxPopulation)
         {
             GameObject fish = Instantiate(fishPrefab, spawnPoint.position, Quaternion.identity);
+            fish.transform.parent = this.gameObject.transform;
             fishList.Add(fish);
             population = fishList.Count;
         }
