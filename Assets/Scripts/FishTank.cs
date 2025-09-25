@@ -14,6 +14,7 @@ public class FishTank : MonoBehaviour
     public TextMeshProUGUI populationText;
     public Renderer tankWaterMaterial;
     public Renderer tankGlassMaterial;
+    public Transform fishSpawnPoint;
 
     [Header("Tank Stats")]
     public float hunger = 0;
@@ -21,6 +22,7 @@ public class FishTank : MonoBehaviour
     public float dirtiness = 0;
     public int population = 0;
     public float points = 0;
+    public float startTime = 0f;
     public List<GameObject> fishList = new List<GameObject>();
 
     [Header("Tank Limits")]
@@ -66,6 +68,17 @@ public class FishTank : MonoBehaviour
         {
             UpdateTank();
             timer = 0f;
+        }
+
+        if (startTime > 0)
+        {
+            startTime -= Time.deltaTime;
+        }
+        else if (startTime != -100f)
+        {
+            AddFish(fishSpawnPoint);
+            AddFish(fishSpawnPoint);
+            startTime = -100f;
         }
     }
 
