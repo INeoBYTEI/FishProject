@@ -102,7 +102,7 @@ public class FishMovement : MonoBehaviour
                 {
                     tank.RemoveFish(collision.gameObject);
                 }
-                else if (rand < range / 2)
+                else
                 {
                     tank.AddFish(collision.gameObject.transform);
                 }
